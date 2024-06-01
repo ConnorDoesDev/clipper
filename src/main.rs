@@ -65,8 +65,7 @@ async fn main() {
     "Clip!"
   });
 
-  println!("runnin up dat webserver chief");
-
+  println!("runnin up dat webserver on port {} chief", env::var("PORT").unwrap());
   warp::serve(clip)
     .run((
       [127, 0, 0, 1],
@@ -76,4 +75,6 @@ async fn main() {
         .expect("Port is not a number ??????? LOL"),
     ))
     .await;
+
+  println!("webserver is kill qqqqq");
 }
