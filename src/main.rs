@@ -62,7 +62,7 @@ async fn main() {
       Ok::<(), serenity::Error>(())
     });
 
-    "Clip!"
+    "clip made gangy\n\nrefresh the page to make another one!!!!!"
   });
   // This is a warp filter that will match any request to /clip/{guild_id} and call the closure with the guild_id as a u64
 
