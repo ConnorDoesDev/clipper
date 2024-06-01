@@ -64,6 +64,7 @@ async fn main() {
 
     "Clip!"
   });
+  // This is a warp filter that will match any request to /clip/{guild_id} and call the closure with the guild_id as a u64
 
   println!("runnin up dat webserver on port {} chief", env::var("PORT").unwrap());
   warp::serve(clip)
