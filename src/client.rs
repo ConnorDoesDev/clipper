@@ -24,7 +24,7 @@ pub struct Handler;
 #[async_trait]
 impl EventHandler for Handler {
   async fn ready(&self, _ctx: Context, data_about_bot: Ready) {
-    println!("{} is ready!", data_about_bot.user.name);
+    println!("{} is ballin", data_about_bot.user.name);
   }
 }
 
@@ -46,7 +46,7 @@ impl DiscordClient {
     let intents = GatewayIntents::all();
     let songbird_config = Config::default().decode_mode(DecodeMode::Decode);
 
-    // remove this since framework is legacy
+    // prc remove this since framework is legacy
     let framework = StandardFramework::new()
       .configure(|c| c.prefix("~"))
       .group(&crate::commands::GENERAL_GROUP);
@@ -67,7 +67,7 @@ impl DiscordClient {
       match client.start().await {
         Ok(_) => Ok(()),
         Err(e) => {
-          println!("Was unable to start client! {}", e);
+          println!("was unable to start client {}", e);
           Err(DiscordClientError::ClientConnection)
         }
       }

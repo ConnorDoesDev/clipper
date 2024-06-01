@@ -18,7 +18,7 @@ use {
 async fn main() {
   let clip_duration: Option<Duration> = match env::var("DURATION") {
     Ok(v) => Some(Duration::from_millis(
-      v.parse().expect("Was unable to parse duration!"),
+      v.parse().expect("wass unable to parse duration!"),
     )),
     Err(_) => None,
   };
@@ -26,11 +26,11 @@ async fn main() {
   let director = Arc::new(Mutex::new(Director::new(48_000, clip_duration)));
 
   let client = client::DiscordClient::new(
-    &env::var("TOKEN").expect("TOKEN was not provided!"),
+    &env::var("TOKEN").expect("no token brother you cant even fill out a config file????,,"),
     director,
   )
   .await
-  .expect("Error starting discord client.");
+  .expect("error starting discord client");
 
   let clip = warp::path!("clip" / u64).map(move |guild_id: u64| {
     let parsed_id = GuildId(guild_id);
@@ -65,15 +65,15 @@ async fn main() {
     "Clip!"
   });
 
-  println!("Starting Webserver");
+  println!("runnin up dat webserver chief");
 
   warp::serve(clip)
     .run((
       [127, 0, 0, 1],
       env::var("PORT")
-        .expect("PORT was not provided!")
+        .expect("PORT not a thing bro lmfaooooooo")
         .parse()
-        .expect("Port is not a number"),
+        .expect("Port is not a number ??????? LOL"),
     ))
     .await;
 }

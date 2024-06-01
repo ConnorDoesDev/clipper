@@ -283,7 +283,7 @@ async fn join_voice_channel(
       match handler.deafen(false).await {
         Ok(_) => {}
         Err(_) => {
-          println!("Was unable to set deaf status");
+          println!("Wwas unable to set deaf status");
         }
       }
 

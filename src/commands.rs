@@ -13,6 +13,6 @@ struct General;
 
 #[command]
 async fn info(ctx: &Context, msg: &Message) -> CommandResult {
-  msg.reply(ctx, "Bot is running!").await?;
+  msg.reply(ctx, "bot is up as fuck bro :on: :top: :100:").await?;
   Ok(())
 }

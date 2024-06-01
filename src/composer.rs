@@ -87,9 +87,9 @@ impl Composer {
       for (index, packet) in snippet.data.iter().enumerate() {
         let global_index = snippet_start_index + index;
 
-        // this catches to long audio clips. Too long audio clips can happen if the shifting moved some snippets around. We can ignore this.
+        // this catches too long audio clips; too long audio clips can happen if the shifting moved some snippets around
         if global_index >= audio.len() {
-          // println!("Clip is too long for predetermined clip length. Available indexes: {}, Audio index: {}", audio.len()-1, global_index);
+          // println!("clip too long for a predetermined clip length - available indexes: {}, Audio index: {}", audio.len()-1, global_index);
           continue;
         }
 
