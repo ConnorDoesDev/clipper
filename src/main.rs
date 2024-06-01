@@ -37,6 +37,14 @@ async fn main() {
     let data = client.director.lock().unwrap().clip(&parsed_id);
 
     let path = voice::save_clip(&parsed_id, &data);
+    // Get the name of the file that was saved (usually the milliseconds since the Unix epoch) and convert them to human-readable time
+    let path = path.replace("output/", "");
+    let path = path.replace(".wav", "");
+    let human_readable_time = chrono::NaiveDateTime::from_timestamp(
+      path.parse::<i64>().expect("unable to parse path to i64"),
+      0,
+    );
+    let path = human_readable_time.format("%Y-%m-%d %H:%M:%S").to_string();
 
     let client = client.client.clone();
 
@@ -53,7 +61,7 @@ async fn main() {
             .send_files(
               client.http.clone(),
               vec![AttachmentType::from(std::path::Path::new(&path))],
-              |m| m.content("Clip!"),
+              |m| m.content("new clip made!"),
             )
             .await?;
         }
